@@ -8,12 +8,12 @@ class Meshage < Formula
   homepage "https://github.com/johngully/homebrew-meshage"
   url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0/meshage-0.1.0.tar.gz"
   version "0.1.0"
-  sha256 "5a2ed14eb3ec1bff4ff48b10d305d1cfab45fb34ac4fa754d716377ea0fd1965"
+  sha256 "b2ac8e2fa46357a65e017b4d94c38564cd72c5e45fb2970fd9eb95327d523122"
   license "MIT"
 
   bottle do
     root_url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "efb64abced4a07b41e245f9da4d314908887a5f60b2a5cb3402438fb0750f200"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "9458fb8250147158ab918e26fc29216c9fc2258317d1b7c000762431a8ce4f66"
   end
 
   depends_on "go" => :build
@@ -23,11 +23,12 @@ class Meshage < Formula
 
   def install
     common = %w[-buildvcs=false -trimpath]
+    source_revision = (buildpath/"SOURCE_REVISION").read.strip
     system "go", "build", *common,
-           "-ldflags", "-s -w -X main.version=#{version}",
+           "-ldflags", "-s -w -X main.version=#{version} -X main.sourceRevision=#{source_revision}",
            "-o", bin/"meshage", "./cmd/meshage"
     system "go", "build", *common,
-           "-ldflags", "-s -w -X main.version=1",
+           "-ldflags", "-s -w -X main.version=1 -X main.sourceRevision=#{source_revision}",
            "-o", libexec/"meshage-capture", "./cmd/meshage-capture"
   end
 
@@ -43,9 +44,9 @@ class Meshage < Formula
 
         ~/Library/Application Support/Meshage/bin/meshage-capture
 
-      Before `brew uninstall meshage`, run `meshage uninstall` as that user so
-      both LaunchAgents are removed. Bounded private state is preserved.
-      Delete it only with the separately confirmed `meshage purge --local`.
+      Plain `brew uninstall meshage` retires the running per-user jobs and
+      preserves bounded private state. Delete that state only with the
+      separately confirmed `meshage purge --local` before removing the formula.
     EOS
   end
 
