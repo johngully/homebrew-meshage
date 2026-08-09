@@ -1,17 +1,19 @@
 # frozen_string_literal: true
 
+require "etc"
+
 # Meshage packages the stable FDA capture helper and upgradeable node together.
 class Meshage < Formula
   desc "Personal iMessage history node for Meshage"
   homepage "https://github.com/johngully/homebrew-meshage"
   url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0/meshage-0.1.0.tar.gz"
   version "0.1.0"
-  sha256 "4e7529e3a980a42874b659fe00a8b1d130c0bb830060c51f184bcce166ccbd9f"
+  sha256 "ca45ade55b82343323502bea57392dc70f3b65426e45400e8620cd124aa1fa9b"
   license "MIT"
 
   bottle do
     root_url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "765e6cbc80b96bfa360d44939c1670ea685c3445c394c84852f13c0dd315c9c2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "a71fed2300c817e115d22f4e27c423b65d50387abcb74b3f036f6f1dadbe04b5"
   end
 
   depends_on "go" => :build
@@ -30,7 +32,7 @@ class Meshage < Formula
   end
 
   def post_install
-    system bin/"meshage", "package-handoff"
+    system bin/"meshage", "package-handoff", "--home", Etc.getpwuid.dir
   end
 
   def caveats
