@@ -8,12 +8,12 @@ class Meshage < Formula
   homepage "https://github.com/johngully/homebrew-meshage"
   url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0/meshage-0.1.0.tar.gz"
   version "0.1.0"
-  sha256 "f8285d5e31cec50de08c18c1d93e5af62ff60d9675b5e95e5ef22ff97127e61e"
+  sha256 "5a2ed14eb3ec1bff4ff48b10d305d1cfab45fb34ac4fa754d716377ea0fd1965"
   license "MIT"
 
   bottle do
     root_url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "f729828d47ca39d7917548897987e130ef702567bbb83c19734a61afc856f5ee"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "efb64abced4a07b41e245f9da4d314908887a5f60b2a5cb3402438fb0750f200"
   end
 
   depends_on "go" => :build
