@@ -8,7 +8,7 @@ class Meshage < Formula
   homepage "https://github.com/johngully/homebrew-meshage"
   url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0/meshage-0.1.0.tar.gz"
   version "0.1.0"
-  sha256 "b2ac8e2fa46357a65e017b4d94c38564cd72c5e45fb2970fd9eb95327d523122"
+  sha256 "21c92c82696c8d0e94f6095d9074403a39c6464ab9ef2ced4d9b0dc5bdbe6ebe"
   license "MIT"
 
   bottle do
@@ -44,8 +44,9 @@ class Meshage < Formula
 
         ~/Library/Application Support/Meshage/bin/meshage-capture
 
-      Plain `brew uninstall meshage` retires the running per-user jobs and
-      preserves bounded private state. Delete that state only with the
+      Plain `brew uninstall meshage` retires both per-user jobs in running,
+      stopped, or unloaded node states and preserves bounded private state.
+      Delete that state only with the
       separately confirmed `meshage purge --local` before removing the formula.
     EOS
   end
