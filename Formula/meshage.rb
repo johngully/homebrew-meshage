@@ -13,8 +13,8 @@ class Meshage < Formula
 
   bottle do
     root_url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0"
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "c10fd9807d75d9e062f910cead3969663422c81173dd2b6f99fb4f99951cce65"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "941039252890e23549c9ef46a17134a556c15743e2a68b866e8f02712ba2d8b4"
   end
 
   depends_on "go" => :build
