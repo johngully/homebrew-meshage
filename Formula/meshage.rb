@@ -11,6 +11,12 @@ class Meshage < Formula
   sha256 "1c95a3ad7a930ee359b678a08e99f5fe99233d94ebfe507a6d4cb9bad091b0eb"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "cda76feb20abad028f8d16b65e0f0c0fe366e8bcb791522d6f27f610690a8130"
+  end
+
   depends_on "go" => :build
   depends_on arch: :arm64
   depends_on macos: :tahoe
