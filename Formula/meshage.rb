@@ -6,9 +6,9 @@ require "etc"
 class Meshage < Formula
   desc "Personal iMessage history node for Meshage"
   homepage "https://github.com/johngully/homebrew-meshage"
-  url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0/meshage-0.1.0.tar.gz?revision=826c4503bfdb3b899d73caee324b6d41ade2118f"
+  url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0/meshage-0.1.0.tar.gz?revision=bdd97a710cbe05c6063adc369c91dc0720f86a76"
   version "0.1.0"
-  sha256 "21c92c82696c8d0e94f6095d9074403a39c6464ab9ef2ced4d9b0dc5bdbe6ebe"
+  sha256 "451552ac6d148fc34d9e3b0e628fec4a6f3a7e24a3d3d97252966d2e61186e8c"
   license "MIT"
 
   bottle do
@@ -44,10 +44,10 @@ class Meshage < Formula
 
         ~/Library/Application Support/Meshage/bin/meshage-capture
 
-      Plain `brew uninstall meshage` retires both per-user jobs in running,
-      stopped, or unloaded node states and preserves bounded private state.
-      Delete that state only with the
-      separately confirmed `meshage purge --local` before removing the formula.
+      Before removing the package, run `meshage uninstall` to retire both
+      per-user jobs while preserving bounded private state and Messages. Then
+      run `brew uninstall meshage`. Delete private state only with the
+      separately confirmed `meshage purge --local`.
     EOS
   end
 
