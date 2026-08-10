@@ -6,7 +6,7 @@ require "etc"
 class Meshage < Formula
   desc "Personal iMessage history node for Meshage"
   homepage "https://github.com/johngully/homebrew-meshage"
-  url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0/meshage-0.1.0.tar.gz?revision=4caabca08bbb5df50249fb978e74446e98605305"
+  url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0/meshage-0.1.0.tar.gz?revision=4caabca08bbb5df50249fb978e74446e98605305&asset=canonical-final"
   version "0.1.0"
   sha256 "79f21a2e65f5ce80e522ea52fd80f18db2596c128de382ff2aebef0872e6cafc"
   license "MIT"
