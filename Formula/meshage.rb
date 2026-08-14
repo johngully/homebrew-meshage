@@ -6,14 +6,14 @@ require "json"
 class Meshage < Formula
   desc "Personal iMessage history node for Meshage"
   homepage "https://github.com/johngully/homebrew-meshage"
-  url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.1/meshage-0.1.1.tar.gz"
-  version "0.1.1"
-  sha256 "9940bc538c803db1fe321bf092c78488c538070db435f2d21e37b6b58f95e0b4"
+  url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.2/meshage-0.1.2.tar.gz"
+  version "0.1.2"
+  sha256 "cd4df35c090c60d02d5b7d2853a9060e0040adac4f2c4e5667e4a104984e14d3"
   license "MIT"
 
   bottle do
-    root_url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "baf0b7f074b98b0e562a051ca7b35bc9349a2fc681b5b073d8e64de504a401a9"
+    root_url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "00149fcbbc9e969fcf23628d25d12b002109aa3f4344efc96cf439efd817b0f0"
   end
 
   depends_on "go" => :build

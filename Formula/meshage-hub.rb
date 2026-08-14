@@ -7,14 +7,14 @@ require "json"
 class MeshageHub < Formula
   desc "Managed operator for a personal Meshage hub"
   homepage "https://github.com/johngully/homebrew-meshage"
-  url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.1/meshage-hub-0.1.1.tar.gz"
-  version "0.1.1"
-  sha256 "9940bc538c803db1fe321bf092c78488c538070db435f2d21e37b6b58f95e0b4"
+  url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.2/meshage-hub-0.1.2.tar.gz"
+  version "0.1.2"
+  sha256 "cd4df35c090c60d02d5b7d2853a9060e0040adac4f2c4e5667e4a104984e14d3"
   license "MIT"
 
   bottle do
-    root_url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "6b5cd209f53412227da3124281b492299162a76443da422d09520f1d5b380d42"
+    root_url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "114ca869da2ac03faac27e03119e004f64fd725412a57ac74777c50703ad277a"
   end
 
   depends_on "node" => :build
@@ -27,11 +27,11 @@ class MeshageHub < Formula
            "--output", buildpath/"managed-hub-package",
            "--version", version.to_s,
            "--source-revision", source_revision,
-           "--source-url", "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.1/meshage-hub-0.1.1.tar.gz",
-           "--source-sha256", "9940bc538c803db1fe321bf092c78488c538070db435f2d21e37b6b58f95e0b4",
-           "--bottle-root-url", "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.1",
-           "--bottle-sha256", "6b5cd209f53412227da3124281b492299162a76443da422d09520f1d5b380d42",
-           "--hub-manifest-digest", "sha256:f43bce3b2222acd602365d5c446ad232750c1f94a1e597991f6faddcc9030df5",
+           "--source-url", "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.2/meshage-hub-0.1.2.tar.gz",
+           "--source-sha256", "cd4df35c090c60d02d5b7d2853a9060e0040adac4f2c4e5667e4a104984e14d3",
+           "--bottle-root-url", "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.2",
+           "--bottle-sha256", "114ca869da2ac03faac27e03119e004f64fd725412a57ac74777c50703ad277a",
+           "--hub-manifest-digest", "sha256:35538d499ff7856efac04596e56da553ea4af94780a3c80cd7ea43d78ed87953",
            "--syncthing-manifest-digest", "sha256:4464f4161dd0251e20d46bb3aec83363db75d80cef1abdd5d5fd4054b04a004d"
     libexec.install Dir[buildpath/"managed-hub-package/{meshage-hub,compose.yaml,VERSION,SOURCE_REVISION,HUB_IMAGE}"]
     bin.install_symlink libexec/"meshage-hub"
