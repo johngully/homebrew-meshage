@@ -1,20 +1,19 @@
 # frozen_string_literal: true
 
 require "etc"
+require "json"
 
-# Meshage packages the stable FDA capture helper and upgradeable node together.
 class Meshage < Formula
   desc "Personal iMessage history node for Meshage"
   homepage "https://github.com/johngully/homebrew-meshage"
-  url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0/meshage-0.1.0.tar.gz?revision=19c6ea6cef71250a3086de3336d8288ad707bc65&asset=canonical-19c6ea6"
-  version "0.1.0"
-  sha256 "369955bbed5e6c4d4abe24838d0e45576305b72658d0fb49991ae8508ad41875"
+  url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.1/meshage-0.1.1.tar.gz"
+  version "0.1.1"
+  sha256 "9940bc538c803db1fe321bf092c78488c538070db435f2d21e37b6b58f95e0b4"
   license "MIT"
 
   bottle do
-    root_url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.0"
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "24722d0be4bf169ff6ade0583d89eee9396e6e6b50069e83757bf6452cd257d8"
+    root_url "https://github.com/johngully/homebrew-meshage/releases/download/v0.1.1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "baf0b7f074b98b0e562a051ca7b35bc9349a2fc681b5b073d8e64de504a401a9"
   end
 
   depends_on "go" => :build
@@ -37,23 +36,9 @@ class Meshage < Formula
     system bin/"meshage", "package-handoff", "--home", Etc.getpwuid.dir
   end
 
-  def caveats
-    <<~EOS
-      Run `meshage setup` as the macOS user whose Messages history will be
-      contributed. Setup creates two per-user LaunchAgents and stops at the
-      manual Full Disk Access boundary for:
-
-        ~/Library/Application Support/Meshage/bin/meshage-capture
-
-      Before removing the package, run `meshage uninstall` to retire both
-      per-user jobs while preserving bounded private state and Messages. Then
-      run `brew uninstall meshage`. Delete private state only with the
-      separately confirmed `meshage purge --local`.
-    EOS
-  end
-
   test do
-    assert_match version.to_s, shell_output("#{bin}/meshage version")
+    identity = JSON.parse(shell_output("#{bin}/meshage version --json"))
+    assert_equal({"version" => version.to_s, "source_revision" => "5f989761bd69b4069591127607b84bdce7878ab5"}, identity)
     assert_match "meshage-capture 1", shell_output("#{libexec}/meshage-capture version")
   end
 end
